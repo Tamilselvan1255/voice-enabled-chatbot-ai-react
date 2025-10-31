@@ -206,7 +206,8 @@ const Dashboard = () => {
       );
 
       if (response.status === 200) {
-        viewHistory();
+        setChatHistory((prev) => prev.filter((x) => x._id !== value))
+        await viewHistory();
       }
     } catch (error) {
       console.error("Error while removing history", error.message);
