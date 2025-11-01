@@ -126,7 +126,14 @@ const Home = () => {
                         type="email"
                         name="email"
                         value={values.email}
-                        onChange={handleChange}
+                        onChange={(e) =>
+                          handleChange({
+                            target: {
+                              name: "email",
+                              value: e.target.value.toLowerCase()
+                            }
+                          })
+                        }
                         onBlur={handleBlur}
                         isInvalid={touched.email && errors.email}
                       />
@@ -204,7 +211,14 @@ const Home = () => {
                         type="text"
                         name="email"
                         value={values.email}
-                        onChange={handleChange}
+                        onChange={(e) => 
+                          handleChange({
+                            target: {
+                              name: "email",
+                              value: e.target.value.toLowerCase()
+                            }
+                          })
+                        }
                         onBlur={handleBlur}
                         isInvalid={touched.email && errors.email}
                       />

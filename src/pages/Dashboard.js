@@ -15,6 +15,7 @@ import { IoMdMic, IoMdTrash } from "react-icons/io";
 import { IoStop } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToken } from "../redux/userSlice";
+import { HiSpeakerWave } from "react-icons/hi2";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -309,7 +310,7 @@ const Dashboard = () => {
                     <h5 className="text-start">{inputText}</h5>
                     <p className="text-start">{responseValue}</p>
                     <span style={{ cursor: "pointer" }} onClick={speakAloud}>
-                      {<IoMdMic />}
+                      {<HiSpeakerWave />}
                     </span>
                   </Card.Body>
                 </Card>
@@ -364,7 +365,7 @@ const Dashboard = () => {
                               }
                               style={{ cursor: "pointer" }}
                             >
-                              <IoMdMic />
+                              <HiSpeakerWave />
                             </span>
                             <span
                               onClick={() => removeHistory(item._id)}
