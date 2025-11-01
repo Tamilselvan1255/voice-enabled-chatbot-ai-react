@@ -11,13 +11,13 @@ import { addToken } from "../redux/userSlice";
 
 const registerValidationSchema = Yup.object({
   userName: Yup.string().required("Username is required"),
-  email: Yup.string().required("Email is required"),
-  password: Yup.string().required("Password is required"),
+  email: Yup.string().email("Invalid email address").required("Email is required"),
+  password: Yup.string().min(4, "Password should be atleast 4 characters").max(20, "Password should not exceed 20 characters").required("Password is required"),
 });
 
 const loginValidationSchema = Yup.object({
-  email: Yup.string().required("Email is required"),
-  password: Yup.string().required("Password is required"),
+  email: Yup.string().email("Invalid email address").required("Email is required"),
+  password: Yup.string().min(4, "Password should be atleast 4 characters").max(20, "Password should not exceed 20 characters").required("Password is required"),
 });
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -123,7 +123,7 @@ const Home = () => {
                         Email
                       </Form.Label>
                       <Form.Control
-                        type="text"
+                        type="email"
                         name="email"
                         value={values.email}
                         onChange={handleChange}
